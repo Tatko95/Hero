@@ -1,0 +1,127 @@
+﻿<Window x:Class="HeroGame.WpfPresentationMain.View.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindowView" Height="491" Width="614"
+        MinHeight="491" MinWidth="614" MaxHeight="491" MaxWidth="614"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="StyleTabItem" TargetType="{x:Type TabItem}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid x:Name="TabItem">
+                            <Border x:Name="Border" Padding="6,18,6,3">
+                                <ContentControl x:Name="Text" Content="{TemplateBinding Header}" TextBlock.FontSize="19" TextBlock.Foreground="Black" TextBlock.FontWeight="Bold"/>
+                            </Border>
+                            <Rectangle x:Name="Indicator" Height="0" Fill="Transparent" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Text" Property="Foreground" Value="Orange"/>
+                                <Setter TargetName="Indicator" Property="Fill" Value="#FF017BCD"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True" SourceName="Text" >
+                                <Setter TargetName="Text" Property="Foreground" Value="#FF017BCD" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Orange"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Window.Background>
+        <RadialGradientBrush>
+            <RadialGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </RadialGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF00BDBD" Offset="0.154"/>
+            <GradientStop Color="#FF28A0A0" Offset="1"/>
+            <GradientStop Color="#FF37C5C5" Offset="0.577"/>
+            <GradientStop Color="#FF2BC7C7" Offset="0.342"/>
+            <GradientStop Color="#FF32B4B4" Offset="0.803"/>
+        </RadialGradientBrush>
+    </Window.Background>
+
+    <Grid>
+        <TabControl TabStripPlacement="Left" Background="#4CFFFFFF" BorderBrush="#FF0040FF" Margin="10,80,24,24" >
+            <TabItem Header="Chat" Style="{StaticResource StyleTabItem}">
+                <Grid Height="352" Width="492">
+                    <TabControl  BorderBrush="#FF0040FF" Background="Transparent" Margin="17,0,134,62">
+                        <TabItem Header="Global" Style="{StaticResource StyleTabItem}" Background="#0012B6BD">
+                            <ListBox Name="lbChat" BorderBrush="#00063666" Background="#00377578" Height="240" Width="337"/>
+                        </TabItem>
+                    </TabControl>
+                    <TextBox Name="tbMsg" Margin="17,300,135,18"></TextBox>
+                    <Button Content="Send" Style="{StaticResource ButtonStyle}" FontSize="17" Command="{Binding Path=ChatCommand}" BorderBrush="#FF0068FF" Margin="365,300,18,18" IsDefault="True"/>
+                    <ListBox Name="lbUsers" Background="#0012B6BD" BorderBrush="#FF0040FF" Margin="360,46,19,62"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Loby" Style="{StaticResource StyleTabItem}">
+                <Grid Height="353" Width="489">
+                    <Label Content="Lobys:" FontSize="20" TextBlock.FontWeight="Bold" Margin="23,20,365,293"/>
+                    <ListView Name="lbLoby" Margin="23,60,177,39" BorderBrush="#FF0040FF" Background="#0012B6BD"/>
+                    <Button Content="Create" Style="{StaticResource ButtonStyle}" FontSize="24" Margin="333,62,17,186" Command="{Binding Path=AddLobyCommand}"/>
+                    <Button Content="Connect" Style="{StaticResource ButtonStyle}" FontSize="24" Margin="333,200,17,48" Command="{Binding Path=ConnectLobyCommand}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Friend" Style="{StaticResource StyleTabItem}" Height="Auto">
+                <Grid Height="353" Width="489">
+                    <Label Content="Friends:" FontSize="20" TextBlock.FontWeight="Bold" Width="110" Margin="23,20,356,293"/>
+                    <ListBox Name="lbFriend" Margin="23,60,177,39" BorderBrush="#FF0040FF" Background="#0012B6BD"/>
+                    <Button Content="Add" Style="{StaticResource ButtonStyle}" FontSize="24" Margin="333,62,17,186" Command="{Binding Path=AddFriendCommand}"/>
+                    <Button Content="Delete" Style="{StaticResource ButtonStyle}" FontSize="24" Margin="333,200,17,48" Command="{Binding Path=DeleteFriendCommand}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Clan" Style="{StaticResource StyleTabItem}" Height="Auto">
+                <Grid Height="353" Width="489">
+                    <TabControl Background="Transparent" BorderBrush="#FF0040FF" Margin="24,0,10,33">
+                        <TabItem Header="Clans" Style="{StaticResource StyleTabItem}">
+                            <Grid>
+                                <ListBox Name="lbAllClan" BorderBrush="#FF0040FF" Background="#0012B6BD" Margin="11,14,-279,-246"/>
+                                <Button Content="Join" FontSize="24" Style="{StaticResource ButtonStyle}" Margin="295,14,-432,-77"/>
+                                <Button Content="Create" FontSize="24" Style="{StaticResource ButtonStyle}" Command="{Binding Path=CreateClanCommand}" Margin="295,97,-432,-162"/>
+                                <Button Content="Leave" FontSize="24" Style="{StaticResource ButtonStyle}" Command="{Binding Path=CreateClanCommand}" Margin="295,181,-432,-246"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="My" Style="{StaticResource StyleTabItem}">
+                            <Grid>
+                                <ListBox Name="lbMyClanChat" BorderBrush="#FF0040FF" Background="#0012B6BD" Margin="11,14,-433,-246"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Result" Style="{StaticResource StyleTabItem}" VerticalAlignment="Bottom">
+                <Grid>
+                    <ListBox Name="lbGames" BorderBrush="#FF0040FF" Background="#0012B6BD" Margin="24,28,-464,-312"/>
+                    <Button Content="Refresh" Style="{StaticResource ButtonStyle}" Margin="350,317,-464,-355"  Command="{Binding Path=RefreshResultCommand}"></Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!--Велком-->
+        <Grid HorizontalAlignment="Left"  VerticalAlignment="Top" Height="75" Width="606" Background="Transparent" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Label Content="Welcom," Foreground="Orange" VerticalAlignment="Center" FontSize="36" FontFamily="Segoe Script" FontWeight="Bold" Margin="10,6,424,13" Height="56"/>
+            <Button Content="X" Foreground="Orange" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe Script" FontWeight="Bold" Background="Transparent" Margin="569,6,10,42" Height="27" Click="Button_Click"/>
+            <Label Content="{Binding Path=YouNickname}" x:Name="tbNickname" Foreground="Orange" VerticalAlignment="Center" FontSize="36" FontFamily="Segoe Script" Width="164" Height="66" RenderTransformOrigin="0.478,0.538" Margin="182,6,260,3" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Window>

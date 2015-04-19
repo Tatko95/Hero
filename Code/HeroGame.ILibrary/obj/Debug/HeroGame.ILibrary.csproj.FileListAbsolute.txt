@@ -1,0 +1,14 @@
+E:\Курсова\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HetoGame.ILibrary.dll
+E:\Курсова\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HetoGame.ILibrary.pdb
+E:\Курсова\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HeroGame.ModelGame.dll
+E:\Курсова\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HeroGame.ModelGame.pdb
+E:\Курсова\Основна\MyGame\Code\HeroGame.ILibrary\obj\Debug\HeroGame.ILibrary.csprojResolveAssemblyReference.cache
+E:\Курсова\Основна\MyGame\Code\HeroGame.ILibrary\obj\Debug\HetoGame.ILibrary.dll
+E:\Курсова\Основна\MyGame\Code\HeroGame.ILibrary\obj\Debug\HetoGame.ILibrary.pdb
+C:\Users\Андрей\Desktop\ОСНОВНА\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HetoGame.ILibrary.dll
+C:\Users\Андрей\Desktop\ОСНОВНА\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HetoGame.ILibrary.pdb
+C:\Users\Андрей\Desktop\ОСНОВНА\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HeroGame.ModelGame.dll
+C:\Users\Андрей\Desktop\ОСНОВНА\Основна\MyGame\Code\HeroGame.ILibrary\bin\Debug\HeroGame.ModelGame.pdb
+C:\Users\Андрей\Desktop\ОСНОВНА\Основна\MyGame\Code\HeroGame.ILibrary\obj\Debug\HeroGame.ILibrary.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\Desktop\ОСНОВНА\Основна\MyGame\Code\HeroGame.ILibrary\obj\Debug\HetoGame.ILibrary.dll
+C:\Users\Андрей\Desktop\ОСНОВНА\Основна\MyGame\Code\HeroGame.ILibrary\obj\Debug\HetoGame.ILibrary.pdb

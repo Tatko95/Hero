@@ -1,0 +1,5 @@
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.ILibrary\bin\Debug\HetoGame.ILibrary.dll
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.ILibrary\bin\Debug\HetoGame.ILibrary.pdb
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.ILibrary\obj\Debug\HetoGame.ILibrary.csprojResolveAssemblyReference.cache
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.ILibrary\obj\Debug\HetoGame.ILibrary.dll
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.ILibrary\obj\Debug\HetoGame.ILibrary.pdb

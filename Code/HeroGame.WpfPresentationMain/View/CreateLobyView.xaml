@@ -1,0 +1,24 @@
+﻿<Window x:Class="HeroGame.WpfPresentationMain.View.CreateLobyView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CreateLobyView" Height="270" Width="320" 
+        MaxHeight="270" MaxWidth="320" MinHeight="270" MinWidth="320"
+        Background="#FF32B4B4" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Name" FontSize="24" FontFamily="Buxton Sketch" Margin="120,20,100,200"/>
+        <Label Content="Password" FontSize="24" FontFamily="Buxton Sketch" Margin="119,110,86,110"/>
+        <TextBox Name="tbName" FontSize="24" FontFamily="Buxton Sketch" Margin="90,60,90,165"/>
+        <PasswordBox Name="tbPass" FontSize="24" FontFamily="Buxton Sketch" Margin="90,150,90,75" IsEnabled="False"/>
+        <CheckBox Name="cbIsPass" Margin="93,120,193,117" Command="{Binding Path=HavePassCommand}"/>
+        <Button Content="Create" FontSize="24"  Background="Orange" Margin="30,200,160,20" Command="{Binding Path=CreateLobyCommand}">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Cancel" FontSize="24"  Background="Orange" Margin="165,200,25,20" Command="{Binding Path=CancelCommand}">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>

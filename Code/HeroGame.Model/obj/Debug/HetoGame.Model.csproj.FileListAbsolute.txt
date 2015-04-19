@@ -1,0 +1,5 @@
+C:\Users\Андрей\Desktop\MyGame\HeroGame.WpfPresentation\HetoGame.Model\bin\Debug\HetoGame.Model.dll
+C:\Users\Андрей\Desktop\MyGame\HeroGame.WpfPresentation\HetoGame.Model\bin\Debug\HetoGame.Model.pdb
+C:\Users\Андрей\Desktop\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HetoGame.Model.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\Desktop\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HetoGame.Model.dll
+C:\Users\Андрей\Desktop\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HetoGame.Model.pdb

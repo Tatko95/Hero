@@ -1,0 +1,14 @@
+E:\Курсова\БолееОсновна\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\bin\Debug\HeroGame.ModelGame.dll
+E:\Курсова\БолееОсновна\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\bin\Debug\HeroGame.ModelGame.pdb
+E:\Курсова\БолееОсновна\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HeroGame.ModelGame.dll
+E:\Курсова\БолееОсновна\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HeroGame.ModelGame.pdb
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\bin\Debug\HeroGame.ModelGame.dll
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\bin\Debug\HeroGame.ModelGame.pdb
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HeroGame.ModelGame.csprojResolveAssemblyReference.cache
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HeroGame.ModelGame.dll
+E:\Курсова\Основна\MyGame\HeroGame.WpfPresentation\HetoGame.Model\obj\Debug\HeroGame.ModelGame.pdb
+E:\Курсова\Основна\MyGame\Code\HeroGame.Model\obj\Debug\HeroGame.ModelGame.csprojResolveAssemblyReference.cache
+E:\Курсова\Основна\MyGame\Code\HeroGame.Model\obj\Debug\HeroGame.ModelGame.dll
+E:\Курсова\Основна\MyGame\Code\HeroGame.Model\obj\Debug\HeroGame.ModelGame.pdb
+E:\Курсова\Основна\MyGame\Code\HeroGame.Model\bin\Debug\HeroGame.ModelGame.dll
+E:\Курсова\Основна\MyGame\Code\HeroGame.Model\bin\Debug\HeroGame.ModelGame.pdb

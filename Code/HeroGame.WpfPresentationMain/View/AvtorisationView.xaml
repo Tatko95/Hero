@@ -1,0 +1,47 @@
+﻿<Window x:Class="HeroGame.WpfPresentationMain.View.AvtorisationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hero authentication" Height="275" Width="443"
+        MaxHeight="275" MaxWidth="443" MinHeight="275" MinWidth="443" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontFamily" Value="Segoe Script"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#00FF0000"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF2CA2A2"/>
+            <GradientStop Color="#FF2CA2A2" Offset="0.979"/>
+            <GradientStop Color="#FF69D1D1" Offset="0.226"/>
+            <GradientStop Color="#FF69D1D1" Offset="0.692"/>
+            <GradientStop Color="White" Offset="0.487"/>
+            <GradientStop Color="#FF9AD4D4" Offset="0.376"/>
+            <GradientStop Color="#FF9AD4D4" Offset="0.581"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid Background="Transparent" Margin="0,0,0,177" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <TextBlock Text="Alone hero" Margin="10,10,265,14" FontSize="30" FontFamily="Comic Sans MS"/>
+            <Button Content="X" Foreground="Black" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe Script" FontWeight="Bold" BorderBrush="Black" Background="Transparent" Margin="388,15,8,46" Click="Button_Click"/>
+        </Grid>
+        <Grid>
+            <TextBlock Text="Login:" Style="{StaticResource ResourceKey=TextBlockStyle}" Margin="-200,-50,10,10"/>
+            <TextBlock Text="Password:" Style="{StaticResource ResourceKey=TextBlockStyle}" Margin="-200,60,10,10"/>
+            <TextBox Name="tbNickName" Margin="166,71,55,130" Height="35" Width="205"  Background="#3F1FF3EA" BorderBrush="Black"/>
+            <PasswordBox Name="tbPassword" Margin="166,125,55,75" Height="35" Width="205" Background="#3F1FF3EA" BorderBrush="Black"/>
+            <Button Content="Login" Style="{StaticResource ResourceKey=ButtonStyle}" Command="{Binding Path=LoginCommand}" Margin="-110,164,10,10" IsDefault="True"/>
+            <Button Content="Registration" Style="{StaticResource ResourceKey=ButtonStyle}" Command="{Binding Path=GoRegistrationCommand}" Margin="-110,164,-260,10"/>
+        </Grid>
+    </Grid>
+</Window>
