@@ -174,9 +174,9 @@ namespace HeroGame.WpfPresentationMain.ViewModel
             get { return _refreshResultCommand ?? (_refreshResultCommand = new RelayCommand(RefreshResultCommandExecute)); }
         }
 
-        private void RefreshResultCommandExecute()
+        private async void RefreshResultCommandExecute()
         {
-            List<Game> games = Proxy.RefreshResult(UserProp);
+            List<Game> games = await Proxy.RefreshResult(UserProp);
             MainWindowViewProp.lbGames.ItemsSource = games;
         }
         #endregion

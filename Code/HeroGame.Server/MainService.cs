@@ -147,12 +147,12 @@ namespace HeroGame.Server
             }
         }
 
-        public List<Game> RefreshResult(User user)
+        public async Task<List<Game>> RefreshResult(User user)
         {
             using (DataGame dataGame = new DataGame())
             {
                 Console.WriteLine(user.NickName + " Refresh result");
-                return dataGame.RefreshResult(user);
+                return await dataGame.RefreshResult(user);
             }
         }
 

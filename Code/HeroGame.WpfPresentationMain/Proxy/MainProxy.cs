@@ -6,6 +6,7 @@ using HeroGame.WpfPresentationMain.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace HeroGame.WpfPresentationMain.Proxy
 {
@@ -80,9 +81,9 @@ namespace HeroGame.WpfPresentationMain.Proxy
             _chanel.IsReady(loby, IsCreater);
         }
 
-        public List<Game> RefreshResult(User user)
+        public async Task<List<Game>> RefreshResult(User user)
         {
-            return _chanel.RefreshResult(user);
+            return await _chanel.RefreshResult(user);
         }
 
         public void AddClan(Clan clan)

@@ -45,7 +45,7 @@ namespace HeroGame.ILibrary
         void IsReady(Loby loby, bool IsCreater);
 
         [OperationContract]
-        List<Game> RefreshResult(User user);
+        Task<List<Game>> RefreshResult(User user);
 
         [OperationContract(IsOneWay=true)]
         void AddClan(Clan clan);

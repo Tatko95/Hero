@@ -16,12 +16,11 @@ namespace HeroGame.ModelGame
         #endregion
 
         #region Constructor
-        public User(string nick, string pass, int id, Clan clan)
+        public User(string nick, string pass, Clan clan)
         {
             NickName = nick;
             Password = pass;
             Friends = new List<User>();
-            ID = id;
             Clan = clan;
             //_lvl = 1;
             //_experience = 0;
@@ -37,8 +36,6 @@ namespace HeroGame.ModelGame
         public Clan Clan { get; set; }
         [DataMember]
         public List<User> Friends { get; set; }
-        [DataMember]
-        public int ID { get; set; }
         #endregion
 
         #region Public members

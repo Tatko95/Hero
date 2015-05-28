@@ -36,7 +36,7 @@ namespace HeroGame.WpfPresentationMain.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            _mainWindowViewModel.Proxy.AddClan(new Clan(this.tbName.Text, _mainWindowViewModel.UserProp, null));
+            _mainWindowViewModel.Proxy.AddClan(new Clan(this.tbName.Text, _mainWindowViewModel.UserProp));
         }
     }
 }

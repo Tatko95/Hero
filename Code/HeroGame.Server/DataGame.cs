@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using HeroGame.ModelGame;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HeroGame.Server
 {
@@ -81,7 +82,7 @@ namespace HeroGame.Server
         {
             using (SqlCommand cmd = new SqlCommand("Registration", _sqlConnection) { CommandType = System.Data.CommandType.StoredProcedure })
             {
-                cmd.Parameters.AddWithValue("@NickName", nickName);
+                cmd.Parameters.AddWithValue("@Nick", nickName);
                 cmd.Parameters.AddWithValue("@Pass", pass);
 
                 SqlParameter parameter = cmd.Parameters.Add(new SqlParameter());
@@ -97,13 +98,23 @@ namespace HeroGame.Server
         public User Login(string nickName)
         {
             User returnUser = null;
-            using (SqlCommand cmd = new SqlCommand("select * from USERS where NickName = @nickName", _sqlConnection))
+            using (SqlCommand cmd = new SqlCommand("select * from USERS where Nick = @Nick", _sqlConnection))
             {
-                cmd.Parameters.AddWithValue("nickName", nickName);
+                cmd.Parameters.AddWithValue("Nick", nickName);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
+                    Clan clan;
                     if (reader.Read())
-                        returnUser = new User(reader["NickName"].ToString(), reader["Pass"].ToString(), (int) reader["ID"], new Clan((int)reader["IDClan"]));
+                    {
+                        if (reader.IsDBNull(2))
+                            clan = null;
+                        else
+                        {
+                            User u = new User((string)reader["Nick"], "", null);
+                            clan = new Clan((string)reader["Clan"], u);
+                        }
+                        returnUser = new User(reader["Nick"].ToString(), reader["Pass"].ToString(), clan);
+                    }
                 }
             }
             return returnUser;
@@ -111,50 +122,33 @@ namespace HeroGame.Server
 
         public void EndGame(Game game)
         {
-            using (SqlCommand cmd = new SqlCommand("INSERT GAME VALUES (@IDWinner, @IDLoser)", _sqlConnection))
+            using (SqlCommand cmd = new SqlCommand("INSERT GAMES VALUES (@NameWinner, @NameLoser)", _sqlConnection))
             {
-                cmd.Parameters.AddWithValue("IDWinner", game.Winner.ID);
-                cmd.Parameters.AddWithValue("IDLoser", game.Loser.ID);
+                cmd.Parameters.AddWithValue("NameWinner", game.Winner.NickName);
+                cmd.Parameters.AddWithValue("NameLoser", game.Loser.NickName);
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public List<Game> RefreshResult(User user)
+        public async Task<List<Game>> RefreshResult(User user)
         {
             List<Game> returnList = new List<Game>();
-            using (SqlCommand cmd = new SqlCommand("select * from GAME where IDWinner = @id1 OR IDLoser = @id2", _sqlConnection))
+            using (SqlCommand cmd = new SqlCommand("select * from GAMES where NameWinner = @NameWinner OR NameLoser = @NameLoser", _sqlConnection))
             {
-                cmd.Parameters.AddWithValue("id1", user.ID);
-                cmd.Parameters.AddWithValue("id2", user.ID);
+                cmd.Parameters.AddWithValue("NameWinner", user.NickName);
+                cmd.Parameters.AddWithValue("NameLoser", user.NickName);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                List<int> list1 = new List<int>();
-                List<int> list2 = new List<int>();
+                List<string> list1 = new List<string>();
+                List<string> list2 = new List<string>();
                 while (reader.Read())
                 {
-                    list1.Add((int)reader[1]);
-                    list2.Add((int)reader[2]);
-                }
-                reader.Close();
-                for (int i = 0; i < list1.Count; i++)
-                {
-                    SqlCommand cmd2 = new SqlCommand("select * from USERS where ID = @id", _sqlConnection);
-                    cmd2.Parameters.AddWithValue("id", list1[i]);
-                    var reader2 = cmd2.ExecuteReader();
-                    reader2.Read();
-                    User u1 = new User((string)reader2[1], "", (int)reader2[0], null);
-                    reader2.Close();
-
-                    SqlCommand cmd3 = new SqlCommand("select * from USERS where ID = @id", _sqlConnection);
-                    cmd3.Parameters.AddWithValue("id", list2[i]);
-                    var reader3 = cmd3.ExecuteReader();
-                    reader3.Read();
-                    User u2 = new User((string)reader3[1], "", (int)reader3[0], null);
-                    reader3.Close();
-
+                    User u1 = new User((string)reader[0], "", null);
+                    User u2 = new User((string)reader[1], "", null);
                     Game game = new Game(u1, u2);
                     returnList.Add(game);
                 }
+                reader.Close();
             }
             return returnList;
         }
@@ -164,7 +158,7 @@ namespace HeroGame.Server
             using (SqlCommand cmd = new SqlCommand("CreateClanProcedure", _sqlConnection) { CommandType = System.Data.CommandType.StoredProcedure })
             {
                 cmd.Parameters.AddWithValue("@Name", clan.Name);
-                cmd.Parameters.AddWithValue("@IDCreater", clan.Creater.ID);
+                cmd.Parameters.AddWithValue("@Creater", clan.Creater.NickName);
 
                 SqlParameter parameter = cmd.Parameters.Add(new SqlParameter());
                 parameter.Direction = System.Data.ParameterDirection.ReturnValue;
@@ -173,6 +167,16 @@ namespace HeroGame.Server
                     return true;
                 else
                     return false;
+            }
+        }
+
+        public void AddFriend(string user1, string user2)
+        {
+            using(SqlCommand cmd = new SqlCommand("INSERT FRIENDS VALUES(@User1, @User2)", _sqlConnection))
+            {
+                cmd.Parameters.AddWithValue("User1", user1);
+                cmd.Parameters.AddWithValue("User2", user2);
+                cmd.ExecuteNonQuery();
             }
         }
     }

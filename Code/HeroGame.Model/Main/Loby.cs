@@ -39,16 +39,6 @@ namespace HeroGame.ModelGame
         public Game Game { get; set; }
         #endregion
 
-        #region public members(start game)
-        //public void StartGame()
-        //{
-        //    Game = new Game(this);
-            
-        //    // буде запускатись гра
-        //}
-
-        #endregion
-
         #region Override
         public override string ToString()
         {

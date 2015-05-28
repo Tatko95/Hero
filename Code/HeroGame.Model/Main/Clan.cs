@@ -11,27 +11,18 @@ namespace HeroGame.ModelGame
     public class Clan
     {
         #region Constructor
-        public Clan(string name, User capitan, int? ID)
+        public Clan(string name, User capitan)
         {
             Name = name;
             Creater = capitan;
-            NeedLvlForJoin = 1;
-        }
-        public Clan(int? id)
-        {
-            ID = id;
         }
         #endregion
 
-        #region Public properties
-        [DataMember]
-        public int? ID { get; private set; }
+        #region Properties
         [DataMember]
         public string Name { get; private set; }
         [DataMember]
         public User Creater { get; private set; }
-        [DataMember]
-        public int NeedLvlForJoin { get; private set; }
         [DataMember]
         public List<User> Users { get; private set; }
         #endregion
@@ -42,12 +33,12 @@ namespace HeroGame.ModelGame
             Clan clan = obj as Clan;
             if (obj == null)
                 return false;
-            return this.ID == clan.ID;
+            return this.Name == clan.Name;
         }
 
         public override int GetHashCode()
         {
-            return this.ID.GetHashCode();
+            return this.Name.GetHashCode();
         }
 
         public override string ToString()
